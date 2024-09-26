@@ -1,0 +1,5 @@
+1. create the backend dir, then venv as well as app.py, db.py and models.py inside it.
+2. install flask, flask-cors and flask-sqlalchemy python-dotenv
+3. create the CRUD logic inside the routes, import the route inside the app to connect them.
+4. Deactivate the venv and do git init in the root directory.
+5. populate your .gitignore file to ensure you are not keeping track of too much files.
