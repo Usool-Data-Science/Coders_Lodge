@@ -3,3 +3,9 @@
 3. create the CRUD logic inside the routes, import the route inside the app to connect them.
 4. Deactivate the venv and do git init in the root directory.
 5. populate your .gitignore file to ensure you are not keeping track of too much files.
+
+For the frontend create the react app using either:
+npm create vite@latest . # or npm create-react-app <app-name>
+
+Remove all boilerplate codes and start your development.
+go to chakra ui `get started` and follow the vite guide
