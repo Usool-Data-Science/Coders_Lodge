@@ -23,4 +23,10 @@ Then in your app.py grab the frontend folder and serve it under the port 5000 to
 
 Then create a  wsgi.py to run the app in the backend and the requirements.txt 
 
-The commit you changes
+The commit you changes and connect your github repo to render
+
+add the backend as your root path and then use this build command
+pip install -r requirements && cd ../frontend && pip install gunicorn && npm install && npm run build
+
+and under the start command use:
+gunicorn wsgi:app # instead of app:app because we are running form wsgi.py not app.py directly.

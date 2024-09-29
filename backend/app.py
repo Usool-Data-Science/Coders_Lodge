@@ -15,7 +15,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL") or 'sqlit
 db = SQLAlchemy(app)
 
 # Serve the static folder (the distr) you got after running the npm run build
-frontend_folder = os.path.join(os.getcwd(), "..", "frontend", "distr")
+frontend_folder = os.path.join(os.getcwd(), "..", "frontend", "dist")
 @app.route("/", defaults={"filename": ""})
 @app.route("/<path:filename>")
 def index(filename):
