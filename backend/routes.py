@@ -11,7 +11,7 @@ def get_all_friends():
     
     return jsonify(response)
 
-@app.route('/api/friends', methods=["POST"])
+@app.route('/api/friends', methods=["POST"], strict_slashes=False)
 def create_friend():
     # Validations
     if request.content_type != 'application/json':
@@ -46,7 +46,7 @@ def create_friend():
     
     return jsonify(new_friend.to_json()), 201
 
-@app.route('/api/friends/<int:id>', methods=['DELETE'])
+@app.route('/api/friends/<int:id>', methods=['DELETE'], strict_slashes=False)
 def delete_friend(id):
     """Delete a friend from the database"""
     try:
@@ -60,7 +60,7 @@ def delete_friend(id):
     except Exception as e:
        return jsonify({"Error": str(e)}), 500
     
-@app.route('/api/friends/<int:id>', methods=['PUT'])
+@app.route('/api/friends/<int:id>', methods=['PUT'], strict_slashes=False)
 def update_friend(id):
     if not request or request.content_type != 'application/json':
        return abort(404, "Not a JSON")

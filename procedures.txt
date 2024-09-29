@@ -9,3 +9,7 @@ npm create vite@latest . # or npm create-react-app <app-name>
 
 Remove all boilerplate codes and start your development.
 go to chakra ui `get started` and follow the vite guide
+
+Design your frontend and then connect both together.
+
+Go to the backend and then run your app again and test to receive friends.
