@@ -30,3 +30,34 @@ pip install -r requirements && cd ../frontend && pip install gunicorn && npm ins
 
 and under the start command use:
 gunicorn wsgi:app # instead of app:app because we are running form wsgi.py not app.py directly.
+
+
+## BLUEPRINTS
+- Create a subfolder for each functionality e.g user, post, main
+- Add their routes, forms and __init__.py to that folder
+- In their routes, create each blueprints like this:
+from flask import Blueprint
+users = Blueprint("user", __name__)
+- replace @app.route("/") with @users.route("/")
+- now go back to the root __init__.py where your app is created and replace the route import with their blueprints and register them all:
+from flaskblog.users.routes import users
+app.register_blueprint(users)
+
+- change the url_for() to that of their relative blueprints, instead of the function name of the route, now it will be blueprint_name.function_name e.g.
+url_for(users.get_users)
+- Dont forget the login_view route also i.e. 'users.login' instead of 'login'
+
+## Configurations
+- create config.py in the root dir
+- move all CONSTANT config to it and remove all keys into .env. If you are on local you can move you keys to ~/.bash_profile:
+export KEY='VALUE'
+- Then you can directly call it in your config file as os.environ.get(KEY)
+- Then go and import the config inside your app using app.config.from_object(Config)
+
+
+## App Creator
+- Define a create_app(config_class=Config) and move the app and the blueprints into it exclude the extensions like login manager such that the extensions wont be bound to the app, it just need to be  called(initialized) in the app.
+- Ensure you are only declaring the extenstions outside and you initialize it in the app.
+- Return app.
+NOTE: Now that we have gotten rid of app from the app.py and moved  it into the create_app function, we can only get access to it now using the current_app
+- so replace app with current_app
