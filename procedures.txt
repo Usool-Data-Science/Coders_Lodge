@@ -13,8 +13,7 @@ go to chakra ui `get started` and follow the vite guide
 Design your frontend and then connect both together.
 
 Go to the backend and then run your app again and test to receive friends.
-Now we want to deploy. we will ensure that our client (which is currently on port 3000)
-is served at the root path of our server(localhost:5000/)
+Now we want to deploy. we will ensure that our client (which is currently on port 3000) is served at the root path of our server(localhost:5000/)
 
 so we will firstly run in the frontend folder:
 npm run build to get the (dist folder) optimized version of our app
@@ -23,7 +22,7 @@ Then in your app.py grab the frontend folder and serve it under the port 5000 to
 
 Then create a  wsgi.py to run the app in the backend and the requirements.txt 
 
-The commit you changes and connect your github repo to render
+Then commit you changes and connect your github repo to render
 
 add the backend as your root path and then use this build command
 pip install -r requirements && cd ../frontend && pip install gunicorn && npm install && npm run build
